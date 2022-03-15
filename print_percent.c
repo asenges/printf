@@ -1,4 +1,3 @@
-#include <stdarg.h>
 #include "main.h"
 /**
  * print_percent - print percent
