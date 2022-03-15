@@ -1,6 +1,10 @@
 #ifndef MYFUNC_H
 #define MYFUNC_H
 #include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <unistd.h>
 /**
  * struct fselector - struct
  * @c: char
@@ -19,6 +23,8 @@ int _putchar(char c);
 int _printf(const char *format, ...);
 int print_percent(va_list s);
 int print_integer(va_list i);
+int print_positive(char *res, int num);
+int print_negative(char *res, int num);
 int print_char(va_list c);
 int print_string(va_list s);
 
