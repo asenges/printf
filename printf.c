@@ -27,10 +27,13 @@ int _printf(const char *format, ...)
 
 	va_start(ls, format);
 
+	if (format == NULL)
+		return (-1);
+
 	i = 0;
 	while (format != NULL && format[i] != '\0')
 	{
-		if (format[i] != '%')
+		if ((format[i] != '%') || (format[i] == '%' && (format[i + 1] == '%' && format[i + 1] == '\0')))
 		{
 			_putchar(format[i]);
 			sum++;
@@ -47,7 +50,7 @@ int _printf(const char *format, ...)
 					sum += res;
 					break;
 				}
-			j++;
+				j++;
 			}
 		}
 		i++;
