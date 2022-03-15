@@ -17,6 +17,10 @@ typedef struct fselector
 
 int _putchar(char c);
 int _printf(const char *format, ...);
+int print_percent(va_list s);
+int print_integer(va_list i);
+int print_char(va_list c);
+int print_string(va_list s);
 
 #endif
 
