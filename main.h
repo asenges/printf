@@ -8,15 +8,6 @@
 #include "main.h"
 #include <stdarg.h>
 /**
- * hexa - struct
- * @i: integer
- * @c: characters
- */
-typedef struct rot13
-{
-	char c;
-} rt;
-/**
  * prf -prf
  * @c: characters
  * @f: pointer to function

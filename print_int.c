@@ -12,20 +12,20 @@
 
 int print_int(va_list i)
 {
-	int b, c = 1, ret = 1, n;
+	int b, c = 1, sum = 1, n;
 
 	n = va_arg(i, int);
 	b = n;
 
 	if (n < 0)
 	{
-		ret = 2;
+		sum = 2;
 		_putchar(45);
 		while (b <= -10)
 		{
 			b /= 10;
 			c *= 10;
-			ret++;
+			sum++;
 		}
 		for (; c >= 1; c /= 10)
 		{
@@ -38,12 +38,12 @@ int print_int(va_list i)
 		{
 			b /= 10;
 			c *= 10;
-			ret++;
+			sum++;
 		}
 		for (; c >= 1; c /= 10)
 		{
 			_putchar(((n / c) % 10) + 48);
 		}
 	}
-	return (ret);
+	return (sum);
 }
