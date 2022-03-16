@@ -1,58 +1,52 @@
-#include "main.h"
 #include <stdarg.h>
+#include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <unistd.h>
-#include <string.h>
-
+#include <stddef.h>
+#include "main.h"
 /**
- * _printf - my printf function
- * Return: int
- * @format: const char
- * @...: args
- *
- * Description:
- * Author Alex Senges (als) and Leandro Irigoyen
- * Date Mar 11, 2022
+ * _printf - printf copu
+ * @format: format receive
+ * Return: ret
  */
 int _printf(const char *format, ...)
 {
-	int i, j, sum = 0, res = 0;
-	va_list ls;
-
-	fsel selector[] = {
-		{"c", print_char}, {"d", print_integer}, {"i", print_integer},
-		{"s", print_string}, {"%", print_percent}, {NULL, NULL}
-	};
-
-	va_start(ls, format);
-
-	i = 0;
-	while (format != NULL && format[i] != '\0')
-	{
-		if (format[i] != '%')
+	va_list p;
+	int i = 0, j = 0, ret = 0, fret = 0, flag = 0;
+	pr pf_s[] = {
+		{'s', print_string}, {'c', print_char}, {'%', print_percent},
+		{'d', print_int}, {'i', print_int},
+		{'\0', NULL}};
+	va_start(p, format);
+	if (format == NULL)
+		return (-1);
+	for (i = 0; format != NULL && format[i] != '\0'; i++)
+	{	flag = 0;
+		if (format[i] == '%')
 		{
-			_putchar(format[i]);
-			sum++;
+			if (format[i + 1] == '\0')
+				return (-1);
+			i++;
+			for (j = 0; pf_s[j].c != '\0'; j++)
+				if (format[i] == pf_s[j].c)
+				{
+					fret += pf_s[j].f(p);
+					flag = 1;
+				}
 		}
 		else
 		{
-			i++;
-			j = 0;
-			while (selector[j].c[0] != '\0')
-			{
-				if (selector[j].c[0] == format[i])
-				{
-					res = selector[j].f(ls);
-					sum += res;
-					break;
-				}
-			j++;
-			}
+			_putchar(format[i]);
+			ret++;
+			flag = 1;
 		}
-		i++;
+		if (flag == 0)
+		{
+			i--;
+			_putchar(37);
+			fret++;
+		}
 	}
-	va_end(ls);
-	return (sum);
+	ret += fret;
+	return (ret);
 }
-

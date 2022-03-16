@@ -1,10 +1,16 @@
+#include <stdarg.h>
+#include <string.h>
+#include <stdlib.h>
 #include "main.h"
+
 /**
- * print_integer - print integer
- * @i: parameter
- * Return: int
+ * print_int - prints a integer
+ * @i: the integer
+ *
+ * Return: the amount of digits of the number
  */
-int print_integer(va_list i)
+
+int print_int(va_list i)
 {
 	int b, c = 1, ret = 1, n;
 
@@ -41,4 +47,3 @@ int print_integer(va_list i)
 	}
 	return (ret);
 }
-

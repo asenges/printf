@@ -1,18 +1,21 @@
 #include "main.h"
 /**
- * print_string - print string
- * @s: parameter
- * Return: int
+ * print_string - print string char
+ * @s: valist
+ * Return: i
  */
 int print_string(va_list s)
 {
-	int i;
-	char *res = va_arg(s, char *);
+	int i = 0;
+	char *nil = "(null)";
+	char *aux = va_arg(s, char *);
 
-	for (i = 0; res[i]; i++)
-	{
-		_putchar(res[i]);
-	}
-	return (i + 1);
+	if (aux != NULL)
+		for (i = 0; aux[i]; i++)
+			_putchar(aux[i]);
+	else
+		for (i = 0; nil[i]; i++)
+			_putchar(nil[i]);
+
+	return (i);
 }
-

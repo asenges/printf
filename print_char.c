@@ -1,15 +1,15 @@
+#include <stdarg.h>
 #include "main.h"
 /**
  * print_char - print char
- * @c: parameter
- * Return: int
+ * @c: valist
+ * Return: 1
  */
 int print_char(va_list c)
 {
-	char res;
+	char aux;
 
-	res = va_arg(c, int);
-	_putchar(res);
+	aux = va_arg(c, int);
+	_putchar(aux);
 	return (1);
 }
-
