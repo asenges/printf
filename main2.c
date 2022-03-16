@@ -78,12 +78,12 @@ int main(void)
     cont = cont + output(a,b);
     printf("\n---------------\n");
     printf("Test 6");
-    /*printf("\nexpected: ");
-    //a = printf("%%s%");
-    //printf("\nobtained: ");
-    //fflush(stdout);
-    //b = _printf("%%s%");
-    //cont = cont + output(a,b);*/
+    printf("\nexpected: ");
+    a = printf("%%s%");
+    printf("\nobtained: ");
+    fflush(stdout);
+    b = _printf("%%s%");
+    cont = cont + output(a,b);
     printf("\n---------------\n");
     printf("Test 7");
     printf("\nexpected: ");
@@ -102,22 +102,20 @@ int main(void)
     cont = cont + output(a,b);
     printf("\n---------------\n");
     printf("Test 9");
-    /*
     printf("\nexpected: ");
     a = printf("%%s%%r%1buelaaaaaas%%s%%%%%%%%%%sali de %k");
     printf("\nobtained: ");
     fflush(stdout);
     b = _printf("%%s%%r%1buelaaaaaas%%s%%%%%%%%%%sali de %k");
-    cont = cont + output(a,b);*/
+    cont = cont + output(a,b);
     printf("\n---------------\n");
     printf("Test 10");
-    /*
     printf("\nexpected: ");
     a = printf("%N&&S%%s%%ID%%");
     printf("\nobtained: ");
     fflush(stdout);
     b = _printf("%N&&S%%s%%ID%%");
-    cont = cont + output(a,b);*/
+    cont = cont + output(a,b);
     printf("\n---------------\n");
     printf("Test 11");
     printf("\nexpected: ");
